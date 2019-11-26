@@ -1,15 +1,23 @@
 import React from 'react';
 import './App.css';
 import Routes from './Routes';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 
-function App() {
+const initialState = {
+  pageTitle: 'Título da página',
+  pageContent: 'Lorem ipsum dolor sit amet, consecteur',
+};
+function reducer(state = initialState, action) {
+  return state;
+}
+const store = createStore(reducer);
+
+const App = () => {
   return (
-    <div>
-      <div className="App">
-        Learn Redux
-      </div>
+    <Provider store={store}>
       <Routes />
-    </div>
+    </Provider>
   );
 }
 
